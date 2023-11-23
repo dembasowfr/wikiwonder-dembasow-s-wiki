@@ -89,7 +89,7 @@ export default function Contact() {
         promise.then(function (response) {
             console.log(response); // Success
             //show a success message on the screen as a notification
-            alert("Your message has been sent successfully!!!");
+            //alert("Your message has been sent successfully!!!");
             //clear the form
             setFormData({ name: "", surname:"", email:"", message: "" });
             
