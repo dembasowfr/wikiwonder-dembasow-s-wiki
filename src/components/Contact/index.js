@@ -10,6 +10,11 @@ import { Client, Databases, ID } from "appwrite";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useThemeConfig } from '@docusaurus/theme-common';
 
+// Toast Notification
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 export default function Contact() {
 
 
@@ -86,10 +91,16 @@ export default function Contact() {
             alert("All the fields are required!!!");
         }
 
+
         promise.then(function (response) {
-            console.log(response); // Success
-            //show a success message on the screen as a notification
-            //alert("Your message has been sent successfully!!!");
+            toast.success("Your message has been sent successfully!!!", {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true
+            }); // Success
             //clear the form
             setFormData({ name: "", surname:"", email:"", message: "" });
             
@@ -104,6 +115,7 @@ export default function Contact() {
     return (
         
         <section className={styles.contactSection}>
+            <ToastContainer />
             <div className="container">
                 <h2 className={styles.contactTitle}>CONTACT</h2>
                 <h3 className={styles.contactSubtitle}>Do you have any suggestion? Want to say something? Please do share it with me</h3>
