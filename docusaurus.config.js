@@ -79,6 +79,13 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      scripts: [
+        {
+          src: 'https://chimpstatic.com/mcjs-connected/js/users/e3db74ba215fe8fed02bd007f/2bdfa611466bfa502d730d867.js',
+          async: true,
+          id: 'mcjs',
+        },
+      ],
       headTags: [
         {
           tagName: 'script',
