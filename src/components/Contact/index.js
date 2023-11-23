@@ -51,13 +51,7 @@ export default function Contact() {
     const collection_id = customFields.REACT_APP_COLLECTION_ID;
     const recaptcha_site_key = customFields.REACT_APP_RECAPTCHA_SITE_KEY;
 
-    console.log("customFields: ", customFields);
-
-    console.log("ProjectID: ", project_id);
-    console.log("endpoint: ", endpoint);
-    console.log("database_id: ", database_id);
-    console.log("collection_id: ", collection_id);
-    console.log("recaptcha_site_key: ", recaptcha_site_key);
+  
 
 
     
