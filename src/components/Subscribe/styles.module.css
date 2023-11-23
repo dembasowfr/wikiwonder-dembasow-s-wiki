@@ -1,0 +1,84 @@
+/* Add these styles to your index.module.css file */
+
+/* About Me Section */
+.subscribeSection {
+    width: 1000px;
+    padding: 0 60px;
+    margin: 0 auto;
+  }
+  
+  @media screen and (max-width: 996px) {
+    .subscribeSection {
+      width: 100%;
+      padding: 0 20px;
+    }
+    
+  }
+  
+  
+  .subscribeTitle {
+    font-size: 24px;
+    margin-bottom: 20px;
+    
+  }
+  
+  .subscribeText {
+    font-size: 18px;
+    
+  }
+  
+  /* Links Section */
+  .linksSection {
+    padding: 60px 0;
+  }
+  
+  .linksList {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+  }
+  .showName{
+    font-family: 'Roboto', sans-serif;
+  }
+  .link {
+    display: block;
+    font-size: 18px;
+    margin: 20px 0;
+    text-decoration: none;
+    color: #007bff; /* Link text color */
+  }
+  
+  .link:hover {
+    text-decoration: underline; /* Underline links on hover */
+  }
+  .subscribeForm{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  .subscribeInput{
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+  }
+
+
+  .subscribeButton{
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    background-color: #a28d17ea;
+
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+  }
+  
+  .subscribeButton:hover{
+    background-color: #FFD700;
+  }

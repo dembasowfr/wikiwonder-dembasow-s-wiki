@@ -1,0 +1,53 @@
+/* Add these styles to your index.module.css file */
+
+/* About Me Section */
+.aboutMeSection {
+  width: 1000px;
+  padding: 0 60px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 996px) {
+  .aboutMeSection {
+    width: 100%;
+    padding: 0 20px;
+  }
+  
+}
+
+
+.aboutMeTitle {
+  font-size: 24px;
+  margin-bottom: 20px;
+  
+}
+
+.aboutMeText {
+  font-size: 18px;
+  
+}
+
+/* Links Section */
+.linksSection {
+  padding: 60px 0;
+}
+
+.linksList {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+.showName{
+  font-family: 'Roboto', sans-serif;
+}
+.link {
+  display: block;
+  font-size: 18px;
+  margin: 20px 0;
+  text-decoration: none;
+  color: #007bff; /* Link text color */
+}
+
+.link:hover {
+  text-decoration: underline; /* Underline links on hover */
+}

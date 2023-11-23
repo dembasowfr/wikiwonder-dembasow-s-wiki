@@ -1,0 +1,118 @@
+
+
+
+.contactSection {
+    width: 1000px;
+    padding: 0 60px;
+    margin: 0 auto;
+  }
+  
+
+
+  @media screen and (max-width: 996px) {
+    .contactSection {
+      width: 100%;
+      padding: 0 20px;
+    }
+    
+  }
+  
+  
+  .contactTitle {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  
+  .contactSubtitle {
+    font-size: 18px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  
+
+  .contactForm{
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+
+  .formLabels{
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    
+  }
+
+  .formLabel{
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+ .recaptcha{
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+    justify-content: center;
+    content: center;  
+ }
+
+  .formLabel input{
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0 10px;
+    font-size: 16px;
+  }
+
+ .feedback{
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+
+  }
+
+  .feedback{
+    height: 150px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    resize: none;
+  }
+
+  .feedback:hover, .feedback:focus{
+    border: 2px solid #ccc;;
+  }
+  
+  .submitButton{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .submitButton button{
+    width: 100%;
+    background-color: #2e8555;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-top: 10px;
+    
+
+  }
+
+  
+  .submitButton button:hover{
+    background-color: #00e31b;
+    color: #ffff;
+    border: 1px solid #2e8555;
+  }
