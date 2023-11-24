@@ -18,6 +18,11 @@ const config = {
   //custom .env file
   customFields: {
     // Put your custom environment here
+    REACT_APP_EMAILJS_PUBLIC_KEY : process.env.REACT_APP_EMAILJS_PUBLIC_KEY,
+    REACT_APP_EMAILJS_PRIVATE_KEY : process.env.REACT_APP_EMAILJS_PRIVATE_KEY,
+    REACT_APP_EMAILJS_TEMPLATE_ID : process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+    REACT_APP_EMAILJS_SERVICE_ID : process.env.REACT_APP_EMAILJS_SERVICE_ID,
+    
     REACT_APP_PROJECT_ID : process.env.REACT_APP_PROJECT_ID,
     REACT_APP_DATABASE_ID   : process.env.REACT_APP_DATABASE_ID,
     REACT_APP_COLLECTION_ID : process.env.REACT_APP_COLLECTION_ID,
