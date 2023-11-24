@@ -4,7 +4,7 @@ import styles from './styles.module.css';
 import { useState } from "react";
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
-import React, { useRef } from 'react';
+import React, { useRef, createRef} from 'react';
 import emailjs from '@emailjs/browser';
 
 
@@ -54,18 +54,23 @@ export default function Contact() {
   
 
     const form = useRef();
-    const [showRecaptcha, setShowRecaptcha] = useState(false);
+    //const [showRecaptcha, setShowRecaptcha] = useState(false);
 
     const { register  ,setValue,  formState:{errors} ,  handleSubmit} = useForm(
         {mode: "all"}
     );
 
-    console.log("Form Errors: ",errors);
-
+    //console.log("Form Errors: ",errors);
+    const recaptchaRef = createRef();
     const sendEmail = (e) => {
+
         e.preventDefault();
 
-        
+        // Check if there are any errors
+        if (Object.keys(errors).length > 0) {
+            // There are errors, do not send the email
+            return;
+        }
 
         emailjs.sendForm(emailjs_service_id, emailjs_template_id, form.current, emailjs_public_key)
         .then((result) => {
@@ -83,8 +88,21 @@ export default function Contact() {
                 draggable: true,
 
             });
-            // Show the reCAPTCHA after the form is submitted
-            setShowRecaptcha(true);
+           
+            // I want to lazy load the reCAPTCHA only when the form is submitted
+            // So I will load the script here
+            // If you want to load the script when the component is rendered
+            // You can do it in the componentDidMount() method
+            // Lazy load the reCAPTCHA
+          
+            // Reset the reCAPTCHA if it's not null
+            if (recaptchaRef.current) {
+                recaptchaRef.current.reset();
+            }
+            // Reload the page imeediately after 5 seconds
+            setTimeout(() => {
+                window.location.reload();
+            }, 5000);
             
         }, (error) => {
             console.log(error.text);
@@ -105,11 +123,8 @@ export default function Contact() {
                     <form 
                         className={styles.contactForm} 
                         ref={form} 
-                        onSubmit={
-                            handleSubmit(
-                                (data) => console.log(data)
-                            )
-                        }
+                        //onSubmit={handleSubmit(sendEmail)}
+                        onSubmit={sendEmail}
                     >
                         <div className={styles.formLabels}>
                             <div className={styles.formLabel}>
@@ -164,6 +179,7 @@ export default function Contact() {
                             <div className={styles.formLabel}>
                                 <div className={styles.recaptcha}>
                                     <ReCAPTCHA 
+                                        ref={recaptchaRef}
                                         {...register("recaptcha", 
                                             {required:"Please verify you are a human!!!"})
                                         }
