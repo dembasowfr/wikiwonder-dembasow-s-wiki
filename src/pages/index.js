@@ -7,7 +7,7 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import AboutMe from '@site/src/components/AboutMe';
 import Contact from '@site/src/components/Contact';
 import DailyQuote from '@site/src/components/DailyQuote';
-import Subscribe from '@site/src/components/Subscribe';
+// import Subscribe from '@site/src/components/Subscribe';
 import styles from './index.module.css';
 
 function HomepageHeader() {
@@ -15,7 +15,7 @@ function HomepageHeader() {
   return (
     <header className={clsx('', styles.heroBanner)}>
       <div className="container">
-       
+
         <div className={styles.homePage}>
           {/* <Link
             className="button button--secondary button--lg"

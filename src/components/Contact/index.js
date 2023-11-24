@@ -1,14 +1,16 @@
 
-import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
 import { useState } from "react";
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
-import { Client, Databases, ID } from "appwrite";
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+
 
 import ReCAPTCHA from "react-google-recaptcha";
 import { useThemeConfig } from '@docusaurus/theme-common';
+
 
 // Toast Notification
 import { ToastContainer, toast } from 'react-toastify';
@@ -19,30 +21,17 @@ export default function Contact() {
 
 
 
-    const [formData, setFormData] = useState({ name: "", surname:"", email:"", message: "", recaptcha: "" });
+    
     const { colorMode } = useThemeConfig();
+    //console.log("Color Mode: ", colorMode);
 
     const recaptchaTheme = colorMode === 'dark' ? 'dark' : 'light';
 
-    // this is to check the color mode that is currently active
-    // theres a color switcher in the footer of the website
-    // so when the user clicks on the color switcher, the color mode changes
-    // and the contact form should also change its color mode
-    //console.log("Theme Config: ", useThemeConfig());
-    
-
-    //console.log("Color Mode: ", colorMode);
-
-    
+    const [formData, setFormData] = useState({ from_name: "", from_surname:"", from_email:"", message: "", recaptcha: ""  });
+  
     const handleChange = (e) => {
-      e.preventDefault();
-      setFormData({ ...formData, 
-        [e.target.name]: e.target.value});
-    };
-
-    const handleSubmit = (e) => {
         e.preventDefault();
-        updateData();
+        setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
     
@@ -50,67 +39,49 @@ export default function Contact() {
     // Variables
     const {siteConfig: {customFields},} = useDocusaurusContext();
 
-    const project_id = customFields.REACT_APP_PROJECT_ID;
-    const endpoint = customFields.REACT_APP_ENDPOINT;
-    const database_id = customFields.REACT_APP_DATABASE_ID;
-    const collection_id = customFields.REACT_APP_COLLECTION_ID;
+    
+
     const recaptcha_site_key = customFields.REACT_APP_RECAPTCHA_SITE_KEY;
+    const emailjs_service_id = customFields.REACT_APP_EMAILJS_SERVICE_ID;
+    const emailjs_template_id = customFields.REACT_APP_EMAILJS_TEMPLATE_ID;
+    const emailjs_public_key = customFields.REACT_APP_EMAILJS_PUBLIC_KEY;
+
+
+   
 
   
 
+    const form = useRef();
+    const [showRecaptcha, setShowRecaptcha] = useState(false);
+    const sendEmail = (e) => {
+        e.preventDefault();
 
-    
-    const client = new Client();
-    
-    client
-        .setEndpoint(endpoint) // Your API Endpoint
-        .setProject(project_id) // Your project ID
-    ;
+        emailjs.sendForm(emailjs_service_id, emailjs_template_id, form.current, emailjs_public_key)
+        .then((result) => {
+            console.log(result.text);
+           
 
-    const databases = new Databases(client);
+            setFormData({ from_name: "", from_surname:"", from_email:"", message: "", recaptcha: "" });
+           
 
-    const updateData = () => {
-
-        const promise = databases.createDocument(
-            database_id, 
-            collection_id, 
-            ID.unique(),
-            {
-                "name": formData.name,
-                "surname": formData.surname,
-                "email": formData.email,
-                "message": formData.message,
-                "recaptcha": formData.recaptcha,
-            }
-        );
-
-        // if one of the fields is empty, and the user clicks on the submit button, show an alert message
-        //saying that all the fields are required
-
-        if (formData.name === "" || formData.surname === "" || formData.email === "" || formData.message === "") {
-            alert("All the fields are required!!!");
-        }
-
-
-        promise.then(function (response) {
-            toast.success("Your message has been sent successfully!!!", {
+            toast.success('Message Sent Successfully!!!', {
                 position: "top-center",
-                autoClose: 3000,
+                autoClose: 5000,
                 hideProgressBar: false,
                 closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true
-            }); // Success
-            //clear the form
-            setFormData({ name: "", surname:"", email:"", message: "" });
+                draggable: true,
+
+            });
+            // Show the reCAPTCHA after the form is submitted
+            setShowRecaptcha(true);
             
-        }, function (error) {
-            console.log("An Error Occured: ",error); // Failure
+        }, (error) => {
+            console.log(error.text);
         });
-    }
+    };
 
-
-    //Google Captcha
+    
+    
     
     return (
         
@@ -120,23 +91,26 @@ export default function Contact() {
                 <h2 className={styles.contactTitle}>CONTACT</h2>
                 <h3 className={styles.contactSubtitle}>Do you have any suggestion? Want to say something? Please do share it with me</h3>
                 <div className={styles.features}>
-                    <form className={styles.contactForm}>
+                    <form className={styles.contactForm} ref={form} onSubmit={sendEmail}>
                         <div className={styles.formLabels}>
                             <div className={styles.formLabel}>
                                 <label>Name</label>
-                                <input type="text" name="name" value={formData.name} 
+                                <input type="text" name="from_name" value={formData.from_name} 
                                     placeholder='Your Lovely Name'
                                     onChange={handleChange}/>
+                                <div className={styles.errorMessage}>Your name is required!!!</div>
                             </div>
                             <div className={styles.formLabel}>
                                 <label>Surname</label>
-                                <input type="text" name="surname" placeholder='Your Beloved Surname' value={formData.surname} 
+                                <input type="text" name="from_surname" placeholder='Your Beloved Surname' value={formData.from_surname} 
                                     onChange={handleChange}/>
+                                <div className={styles.errorMessage}> Your surname is required!!!</div>
                             </div>
                             <div className={styles.formLabel}>
                                 <label>Email</label>
-                                <input type="email"  placeholder="martinlutherkingjr@gmail.com" name="email" value={formData.email} 
+                                <input type="email" name="from_email" placeholder="martinlutherking@gmail.com" value={formData.from_email} 
                                     onChange={handleChange}/>
+                                <div className={styles.errorMessage}> Please enter your email address!!!</div>
                             </div>
                         
                             <div className={styles.formLabel}>
@@ -144,14 +118,15 @@ export default function Contact() {
                                 <textarea className={styles.feedback} type="text" name="message"
                                     placeholder="Say Something Here..." value={formData.message}
                                     onChange={handleChange} />
+                                <div className={styles.errorMessage}>Message can not be empty!!!</div>
                             </div>
                             <div className={styles.formLabel}>
                                 <div className={styles.recaptcha}>
                                     <ReCAPTCHA 
-                                        name = "recaptcha"
-                                        sitekey={recaptcha_site_key} 
-                                        onChange={(value) => setFormData({ ...formData, recaptcha: value })}
-                                        theme={recaptchaTheme}
+                                       name = "recaptcha"
+                                       sitekey={recaptcha_site_key} 
+                                       onChange={(value) => setFormData({ ...formData, recaptcha: value })}
+                                       theme={recaptchaTheme}
                                     />
                                 </div>
                             </div>
@@ -160,10 +135,9 @@ export default function Contact() {
                                 <button
                                     type="submit"
                                     className={styles.submit}
-                                    onClick={handleSubmit}
                                     disabled={formData.recaptchaValue === ""}
                                     >
-                                        Send Feedback
+                                       Send Message
                                 </button>
                             </div>
                         </div>
