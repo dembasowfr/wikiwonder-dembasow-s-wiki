@@ -89,12 +89,7 @@ export default function Contact() {
 
             });
            
-            // I want to lazy load the reCAPTCHA only when the form is submitted
-            // So I will load the script here
-            // If you want to load the script when the component is rendered
-            // You can do it in the componentDidMount() method
-            // Lazy load the reCAPTCHA
-          
+    
             // Reset the reCAPTCHA if it's not null
             if (recaptchaRef.current) {
                 recaptchaRef.current.reset();
