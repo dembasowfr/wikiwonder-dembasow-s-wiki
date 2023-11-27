@@ -91,16 +91,23 @@ const config = {
           id: 'mcjs',
         },
       ],
-      headTags: [
-        {
-          tagName: 'script',
-          attributes: {
-            id: 'mcjs',
-            src: 'https://chimpstatic.com/mcjs-connected/js/users/e3db74ba215fe8fed02bd007f/2bdfa611466bfa502d730d867.js',
-            async: true,
-          },
-        },
-      ],
+      // scripts: [
+      //   {
+      //     src: 'https://chimpstatic.com/mcjs-connected/js/users/e3db74ba215fe8fed02bd007f/2bdfa611466bfa502d730d867.js',
+      //     async: true,
+      //     id: 'mcjs',
+      //   },
+      // ],
+      // headTags: [
+      //   {
+      //     tagName: 'script',
+      //     attributes: {
+      //       id: 'mcjs',
+      //       src: 'https://chimpstatic.com/mcjs-connected/js/users/e3db74ba215fe8fed02bd007f/2bdfa611466bfa502d730d867.js',
+      //       async: true,
+      //     },
+      //   },
+      // ],
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
