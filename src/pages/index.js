@@ -7,7 +7,6 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import AboutMe from '@site/src/components/AboutMe';
 import Contact from '@site/src/components/Contact';
 import DailyQuote from '@site/src/components/DailyQuote';
-// import Subscribe from '@site/src/components/Subscribe';
 import styles from './index.module.css';
 
 function HomepageHeader() {
@@ -48,7 +47,7 @@ export default function Home() {
         <DailyQuote />
         <HomepageFeatures />
         <Contact />
-        {/* <Subscribe /> */}
+        
       </main>
     </Layout>
   );

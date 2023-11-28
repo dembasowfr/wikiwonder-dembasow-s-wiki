@@ -45,7 +45,7 @@ export default function Subscribe() {
     return ( 
         <section id="signup" className={styles.subscribeSection}>
             <div className="container">
-                <h2 className={styles.subscribeTitle}>SUBSCRIPTION</h2>
+                <h2 className={styles.subscribeTitle}>Subscribe to Wiki Wonder's daily email for more interesting contents!</h2>
                 <BrowserOnly fallback={<div>Loading...</div>}>
                     {() => {
                         if (token) {
@@ -57,8 +57,6 @@ export default function Subscribe() {
                         } else {
                             // signup form
                             return <form onSubmit={onSubmit}>
-                                <h3>Subscribe to Wiki Wonder's daily email for more interesting contents!</h3>
-                                
                                 <div className={styles.subscribeForm}>
                                     <div className={styles.subscribeEmailContainer}>
                                         <input
