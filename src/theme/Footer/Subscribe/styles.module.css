@@ -5,6 +5,7 @@
     width: 1000px;
     padding: 0 60px;
     margin: 0 auto;
+    padding-bottom: 10px;
   }
   
   @media screen and (max-width: 996px) {
@@ -19,6 +20,7 @@
   .subscribeTitle {
     font-size: 24px;
     margin-bottom: 20px;
+    text-transform: uppercase;
     
   }
   
@@ -55,30 +57,51 @@
     width: 100%;
     display: grid;
     grid-template-columns: 2fr 1fr;
+    grid-gap: 20px;
     align-items: center;
-    margin-bottom: 40px;
   }
   .subscribeInput{
     width: 100%;
-    padding: 10px;
+    padding: 14px;
     font-size: 16px;
     border: 1px solid #ccc;
-    border-radius: 5px 0 0 5px;
+    border-radius: 5px;
   }
 
 
   .subscribeButton{
+    color: aliceblue;
     width: 100%;
     padding: 14px;
     font-size: 16px;
-    background-color: #a28d17ea;
-
+    background-color: #49421aea;
     outline: none;
-    border: 1px solid #ccc;
-    border-radius: 0 5px 5px 0;
+    border-radius: 5px;
     cursor: pointer;
   }
   
   .subscribeButton:hover{
-    background-color: #FFD700;
+    background-color: #a18900;
+  }
+
+  .subscribeError{
+    color: red;
+    font-size: 14px;
+  }
+
+  .subscribeErrorSection
+  {
+    margin-bottom: 10px;
+    padding-bottom: 10px ;
+  }
+
+  .successMessage{
+    color: green;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .sendingMessage{
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
   }

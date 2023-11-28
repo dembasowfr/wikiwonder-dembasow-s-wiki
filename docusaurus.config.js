@@ -30,6 +30,8 @@ const config = {
     REACT_APP_RECAPTCHA_SITE_KEY : process.env.REACT_APP_RECAPTCHA_SITE_KEY,
     REACT_APP_RECAPTCHA_SECRET_KEY : process.env.REACT_APP_RECAPTCHA_SECRET_KEY,
     REACT_APP_HCAPTCHA_SITE_KEY : process.env.REACT_APP_HCAPTCHA_SITE_KEY,
+
+    REACT_APP_MAILCHIMP_URL : process.env.REACT_APP_MAILCHIMP_URL,
   },
 
   // Set the production url of your site here
@@ -191,9 +193,10 @@ const config = {
              
             ],
           },
+          
         ],
         //I want to add horizontal line here
-        
+       
         copyright: `Copyright © ${new Date().getFullYear()} Wiki Wonder. Built by <a href="https://dembashow.tech/">Demba Sow</a> with React, Docusaurus & Love💘🫰`,
       },
       
