@@ -1,23 +1,28 @@
-import MailchimpSubscribe from "react-mailchimp-subscribe"
+import MailchimpSubscribe from 'react-mailchimp-subscribe';
+import Form from './Form';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
-const url = "//xxxx.us13.list-manage.com/subscribe/post?u=zefzefzef&id=fnfgn";
+const Subscribe = () => {
 
-// simplest form (only email)
-const SimpleForm = () => <MailchimpSubscribe url={url}/>
+  const {siteConfig: {customFields},} = useDocusaurusContext();
 
-// use the render prop and your custom form
-const Subscribe = () => (
-  <MailchimpSubscribe
-    url={url}
-    render={({ subscribe, status, message }) => (
-      <div>
-        <SimpleForm onSubmitted={formData => subscribe(formData)} />
-        {status === "sending" && <div style={{ color: "blue" }}>sending...</div>}
-        {status === "error" && <div style={{ color: "red" }} dangerouslySetInnerHTML={{__html: message}}/>}
-        {status === "success" && <div style={{ color: "green" }}>Subscribed !</div>}
-      </div>
-    )}
-  />
-)
+  const MAILCHIMP_URL = customFields.REACT_APP_MAILCHIMP_URL;
 
-export default Subscribe
+  return (
+    <MailchimpSubscribe
+      url={ MAILCHIMP_URL }
+      render={ ( props ) => {
+        const { subscribe, status, message } = props || {};
+        return (
+          <Form
+            status={ status }
+            message={ message }
+            onValidated={ formData => subscribe( formData ) }
+          />
+        );
+      } }
+    />
+  );
+};
+
+export default Subscribe;

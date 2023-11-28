@@ -5,6 +5,7 @@
     width: 1000px;
     padding: 0 60px;
     margin: 0 auto;
+    padding-bottom: 10px;
   }
   
   @media screen and (max-width: 996px) {
@@ -19,6 +20,7 @@
   .subscribeTitle {
     font-size: 24px;
     margin-bottom: 20px;
+    text-transform: uppercase;
     
   }
   
@@ -57,7 +59,6 @@
     grid-template-columns: 2fr 1fr;
     grid-gap: 20px;
     align-items: center;
-    margin-bottom: 40px;
   }
   .subscribeInput{
     width: 100%;
@@ -81,4 +82,26 @@
   
   .subscribeButton:hover{
     background-color: #a18900;
+  }
+
+  .subscribeError{
+    color: red;
+    font-size: 14px;
+  }
+
+  .subscribeErrorSection
+  {
+    margin-bottom: 10px;
+    padding-bottom: 10px ;
+  }
+
+  .successMessage{
+    color: green;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .sendingMessage{
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
   }

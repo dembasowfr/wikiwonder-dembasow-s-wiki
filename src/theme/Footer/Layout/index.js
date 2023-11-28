@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import Subscribe from '../Subscribe/SubscriptionForm';
+import Subscribe from '../Subscribe';
 
 
 
