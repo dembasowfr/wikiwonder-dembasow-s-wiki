@@ -1,3 +1,6 @@
+![Cover Image](img/cover.png)
+
+
 # this is the technology page
 Here I want to write everything about technology
 
