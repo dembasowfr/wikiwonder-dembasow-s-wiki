@@ -1,47 +1,43 @@
 ---
-# title: "TRIP TO MAURITANIA"
-# subtitle: A detailed blog post about my trip to Mauritania
-# date: 2023-04-16T07:02:49+03:00
-# author: DEMBA SOW
-# # Disqus
-# disqus: true
-# disqus_identifier: trip-to-mauritania
-# disqus_title: "TRIP TO MAURITANIA"
-# disqus_url: https://dembasow98.github.ioimg/
-# # DISQUS COMMENTS
-# comments: true
-
-# featuredImage: img/cover-image.png
-# lightgallery: true
-# description:
-# keywords:
-# license:
-# weight: 0
-# tags:
-#   - Travelling
-#   - Advanture
-#   - Personal Development
-#   - Visit
-#   - Culture
-# categories:
-#   - Travelling
-#   - Advanture
-#   - Personal Development
-#   - Visit
-#   - Culture
-# hiddenFromHomePage: false
-# hiddenFromSearch: false
-# summary: A detailed blog post about my trip to Mauritania
-# toc: true
-# math: false
-# lightgallery: false
-# password:
-# message:
-# repost:
-#   enable: true
-#   url:
+title: TRIP TO MAURITANIA
+subtitle: A detailed blog post about my trip to Mauritania
+date: 2023-04-16T04:02:49.000Z
+author: DEMBA SOW
+disqus: true
+disqus_identifier: trip-to-mauritania
+disqus_title: TRIP TO MAURITANIA
+disqus_url: https://dembasow98.github.ioimg/
+comments: true
+featuredImage: img/cover-image.png
+description: "This is a description of the blog post"
+keywords: ["keyword1", "keyword2"]
+license: null
+weight: 0
+tags:
+  - Travelling
+  - Advanture
+  - Personal Development
+  - Visit
+  - Culture
+categories:
+  - Travelling
+  - Advanture
+  - Personal Development
+  - Visit
+  - Culture
+hiddenFromHomePage: false
+hiddenFromSearch: false
+summary: A detailed blog post about my trip to Mauritania
+toc: true
+math: false
+password: null
+message: null
+repost:
+  enable: true
+  url: null
 sidebar_position: 7
 ---
+
 
 
 
